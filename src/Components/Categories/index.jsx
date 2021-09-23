@@ -7,14 +7,7 @@ export const Categories = () => {
   return (
     <div className="content__top">
       <CategoryFilter
-        items={[
-          "Все",
-          "Мясные",
-          "Вегетарианские",
-          "Гриль",
-          "Острые",
-          "Закрытые",
-        ]}
+        items={["Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"]}
       />
       <CategorySort />
     </div>

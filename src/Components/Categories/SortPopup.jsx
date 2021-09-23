@@ -1,13 +1,15 @@
 import React from "react";
 
-export const SortPopup = () => {
+export const SortPopup = ({ visiblePopup }) => {
   return (
-    <div className="sort__popup">
-      <ul>
-        <li className="active">популярности</li>
-        <li>цене</li>
-        <li>алфавиту</li>
-      </ul>
-    </div>
+    visiblePopup && (
+      <div className="sort__popup">
+        <ul>
+          <li className="active">популярности</li>
+          <li>цене</li>
+          <li>алфавиту</li>
+        </ul>
+      </div>
+    )
   );
 };
