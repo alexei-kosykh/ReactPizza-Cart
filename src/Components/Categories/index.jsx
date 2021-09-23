@@ -4,12 +4,18 @@ import { CategoryFilter } from "./CategoryFilter";
 import { CategorySort } from "./CategorySort";
 
 export const Categories = () => {
+  const arrCategoryFilter = [
+    "Мясные",
+    "Вегетарианские",
+    "Гриль",
+    "Острые",
+    "Закрытые",
+  ];
+  const arrCategorySort = ["популярности", "цене", "алфавиту"];
   return (
     <div className="content__top">
-      <CategoryFilter
-        items={["Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"]}
-      />
-      <CategorySort />
+      <CategoryFilter items={arrCategoryFilter} />
+      <CategorySort items={arrCategorySort} />
     </div>
   );
 };

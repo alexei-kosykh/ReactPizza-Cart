@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { SortPopup } from "./SortPopup.jsx";
 import { LabelSort } from "./LabelSort.jsx";
 
-export const CategorySort = () => {
+export const CategorySort = ({ items }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
-  const [activeLabel, setActiveLabel] = useState("популярности");
+  const [activeLabel, setActiveLabel] = useState(items[0]);
   const sortRef = useRef();
 
   const toggleVisiblePopup = () => {
@@ -24,9 +24,13 @@ export const CategorySort = () => {
 
   return (
     <div ref={sortRef} className="sort">
-      <LabelSort activeLabel={activeLabel} onClickPopup={toggleVisiblePopup} />
+      <LabelSort
+        visiblePopup={visiblePopup}
+        activeLabel={activeLabel}
+        onClickPopup={toggleVisiblePopup}
+      />
       <SortPopup
-        items={["популярности", "цене", "алфавиту"]}
+        items={items}
         visiblePopup={visiblePopup}
         setVisiblePopup={setVisiblePopup}
         setActiveLabel={setActiveLabel}
