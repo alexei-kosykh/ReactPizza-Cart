@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LabelSort = ({ onClickPopup }) => {
+export const LabelSort = ({ onClickPopup, activeLabel }) => {
   return (
     <div className="sort__label">
       <svg
@@ -16,7 +16,7 @@ export const LabelSort = ({ onClickPopup }) => {
         />
       </svg>
       <b>Сортировка по:</b>
-      <span onClick={onClickPopup}>популярности</span>
+      <span onClick={onClickPopup}>{activeLabel}</span>
     </div>
   );
 };
