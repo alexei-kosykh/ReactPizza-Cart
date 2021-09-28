@@ -5,7 +5,7 @@ export const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
   const arrTypes = ["тонкое", "традиционное"];
   const arrSizes = [26, 30, 40];
   const [activeType, setActiveType] = useState(types[0]);
-  const [activeSize, setActiveSize] = useState(sizes[0]);
+  const [activeSize, setActiveSize] = useState(0);
 
   const onSelectType = (index) => {
     setActiveType(index);
@@ -69,4 +69,13 @@ export const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
       </div>
     </div>
   );
+};
+
+PizzaBlock.defaultProps = {
+  name: "-Безымянная-",
+  imageUrl:
+    "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg",
+  sizes: [],
+  price: 0,
+  types: [],
 };
