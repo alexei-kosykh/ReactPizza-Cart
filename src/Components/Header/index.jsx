@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Button } from "../";
-import { HeaderLogo } from "./HeaderLogo";
 
 import logoSvg from "../../assets/img/logo-pizza.png";
 
@@ -9,11 +8,13 @@ export const Header = () => {
     <div className="header">
       <div className="container">
         <Link to="/">
-          <HeaderLogo
-            logoSvg={logoSvg}
-            title="Pizza-Pizza"
-            subTitle="лучше один раз попробовать"
-          />
+          <div className="header__logo">
+            <img width="38" src={logoSvg} alt="Pizza logo" />
+            <div>
+              <h1>Pizza-Pizza</h1>
+              <p>лучше один раз попробовать</p>
+            </div>
+          </div>
         </Link>
         <Link to="/cart">
           <Button className={"button--cart"}>
