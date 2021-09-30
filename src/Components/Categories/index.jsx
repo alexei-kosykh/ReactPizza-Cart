@@ -11,7 +11,11 @@ export const Categories = () => {
     "Острые",
     "Закрытые",
   ];
-  const arrCategorySort = ["популярности", "цене", "алфавиту"];
+  const arrCategorySort = [
+    { name: "популярности", type: "popular" },
+    { name: "цене", type: "price" },
+    { name: "алфавиту", type: "alphabet" },
+  ];
   return (
     <div className="content__top">
       <CategoryFilter items={arrCategoryFilter} />

@@ -5,7 +5,7 @@ import { LabelSort } from "./LabelSort.jsx";
 
 export const CategorySort = ({ items }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
-  const [activeLabel, setActiveLabel] = useState(items[0]);
+  const [activeLabel, setActiveLabel] = useState(items[0].name);
   const sortRef = useRef();
 
   const toggleVisiblePopup = () => {
