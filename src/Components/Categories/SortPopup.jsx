@@ -10,7 +10,7 @@ export const SortPopup = ({
 
   const onSelectItem = (index) => {
     setActiveItem(index);
-    setActiveLabel(items[index]);
+    setActiveLabel(items[index].name);
     setVisiblePopup(false);
   };
 
@@ -19,13 +19,13 @@ export const SortPopup = ({
       <div className="sort__popup">
         <ul>
           {items &&
-            items.map((item, key) => (
+            items.map((obj, key) => (
               <li
                 className={activeItem === key ? "active" : ""}
                 onClick={() => onSelectItem(key)}
-                key={`${item}_${key}`}
+                key={`${obj.type}_${key}`}
               >
-                {item}
+                {obj.name}
               </li>
             ))}
         </ul>
