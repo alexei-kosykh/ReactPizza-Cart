@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 
-export const CategoryFilter = ({ items }) => {
+export const CategoryFilter = memo(({ items, onClickItem }) => {
   const [activeItem, setActiveItem] = useState(null);
 
   const onSelectItem = (index) => {
     setActiveItem(index);
+    onClickItem(index);
   };
 
   return (
@@ -29,4 +30,4 @@ export const CategoryFilter = ({ items }) => {
       </ul>
     </div>
   );
-};
+});
