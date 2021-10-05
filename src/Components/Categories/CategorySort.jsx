@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 
 import { SortPopup } from "./SortPopup.jsx";
 import { LabelSort } from "./LabelSort.jsx";
 
-export const CategorySort = ({ items }) => {
+export const CategorySort = memo(({ items }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [activeLabel, setActiveLabel] = useState(items[0].name);
   const sortRef = useRef();
@@ -37,4 +37,4 @@ export const CategorySort = ({ items }) => {
       />
     </div>
   );
-};
+});
