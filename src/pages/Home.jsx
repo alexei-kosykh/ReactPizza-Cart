@@ -1,13 +1,21 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
+import { fetchPizzas } from "../redux/actions/pizzas";
 import { Categories, PizzaBlock } from "../components";
 
 export const Home = () => {
+  const dispatch = useDispatch();
+
   const { items } = useSelector(({ pizzas }) => {
     return {
       items: pizzas.items,
     };
   });
+
+  useEffect(() => {
+    dispatch(fetchPizzas());
+  }, []);
 
   return (
     <div className="container">
