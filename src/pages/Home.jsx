@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { fetchPizzas } from "../redux/actions/pizzas";
-import { Categories, PizzaBlock } from "../components";
+import { Categories, PizzaBlock, PizzaLoadingBlock } from "../components";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,8 @@ export const Home = () => {
     };
   });
 
+  const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
+
   useEffect(() => {
     dispatch(fetchPizzas());
   }, []);
@@ -22,7 +24,9 @@ export const Home = () => {
       <Categories />
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
-        {items && items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
+        {isLoaded
+          ? items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)
+          : Array(10).fill(<PizzaLoadingBlock />)}
       </div>
     </div>
   );
