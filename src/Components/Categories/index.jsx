@@ -13,9 +13,9 @@ const arrCategoryFilter = [
   "Закрытые",
 ];
 const arrCategorySort = [
-  { name: "популярности", type: "rating" },
-  { name: "цене", type: "price" },
-  { name: "алфавиту", type: "name" },
+  { name: "популярности", type: "rating", order: "desc" },
+  { name: "цене", type: "price", order: "desc" },
+  { name: "алфавиту", type: "name", order: "asc" },
 ];
 
 export const Categories = ({ category, sortBy }) => {

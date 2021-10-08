@@ -22,7 +22,7 @@ export const Home = () => {
 
   return (
     <div className="container">
-      <Categories category={category} sortBy={sortBy} />
+      <Categories category={category} sortBy={sortBy.type} />
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {isLoaded
