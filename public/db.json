@@ -99,7 +99,7 @@
       "sizes": [26, 30, 40],
       "price": 285,
       "category": 5,
-      "rating": 7
+      "rating": 1
     },
     {
       "id": 10,
@@ -109,7 +109,7 @@
       "sizes": [26, 30, 40],
       "price": 285,
       "category": 5,
-      "rating": 7
+      "rating": 10
     }
   ]
 }

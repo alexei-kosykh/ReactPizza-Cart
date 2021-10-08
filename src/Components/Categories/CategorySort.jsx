@@ -3,9 +3,11 @@ import { useState, useEffect, useRef, memo } from "react";
 import { SortPopup } from "./SortPopup.jsx";
 import { LabelSort } from "./LabelSort.jsx";
 
-export const CategorySort = memo(({ items }) => {
+export const CategorySort = memo(({ items, activeSort, onClickSort }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
-  const [activeLabel, setActiveLabel] = useState(items[0].name);
+  const [activeLabel, setActiveLabel] = useState(
+    items.find((obj) => obj.type === activeSort).name
+  );
   const sortRef = useRef();
 
   const toggleVisiblePopup = () => {
@@ -34,7 +36,11 @@ export const CategorySort = memo(({ items }) => {
         visiblePopup={visiblePopup}
         setVisiblePopup={setVisiblePopup}
         setActiveLabel={setActiveLabel}
+        activeSort={activeSort}
+        onClickSortBy={onClickSort}
       />
     </div>
   );
 });
+
+CategorySort.defaultProps = { items: [] };

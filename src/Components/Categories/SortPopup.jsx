@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-
 export const SortPopup = ({
   items,
   visiblePopup,
   setVisiblePopup,
   setActiveLabel,
+  activeSort,
+  onClickSortBy,
 }) => {
-  const [activeItem, setActiveItem] = useState(0);
-
-  const onSelectItem = (index) => {
-    setActiveItem(index);
-    setActiveLabel(items[index].name);
+  const onSelectItem = (type) => {
+    onClickSortBy(type);
+    setActiveLabel(items.find((obj) => obj.type === type).name);
     setVisiblePopup(false);
   };
 
@@ -21,8 +19,8 @@ export const SortPopup = ({
           {items &&
             items.map((obj, key) => (
               <li
-                className={activeItem === key ? "active" : ""}
-                onClick={() => onSelectItem(key)}
+                className={activeSort === obj.type ? "active" : ""}
+                onClick={() => onSelectItem(obj.type)}
                 key={`${obj.type}_${key}`}
               >
                 {obj.name}
