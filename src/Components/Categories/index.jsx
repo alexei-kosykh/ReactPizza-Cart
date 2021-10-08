@@ -13,9 +13,37 @@ const arrCategoryFilter = [
   "Закрытые",
 ];
 const arrCategorySort = [
-  { name: "популярности", type: "rating", order: "desc" },
-  { name: "цене", type: "price", order: "desc" },
-  { name: "алфавиту", type: "name", order: "asc" },
+  {
+    name: "популярности вниз",
+    type: "rating",
+    keyType: "rathing-desc",
+    order: "desc",
+  },
+  {
+    name: "популярности вверх",
+    type: "rating",
+    keyType: "rathing-asc",
+    order: "asc",
+  },
+  {
+    name: "цене вниз",
+    type: "price",
+    keyType: "price-desc",
+    order: "desc",
+  },
+  { name: "цене вверх", type: "price", keyType: "price-asc", order: "asc" },
+  {
+    name: "алфавиту (А-Я)",
+    keyType: "alphabet-asc",
+    type: "name",
+    order: "asc",
+  },
+  {
+    name: "алфавиту (Я-А)",
+    keyType: "alphabet-desc",
+    type: "name",
+    order: "desc",
+  },
 ];
 
 export const Categories = ({ category, sortBy }) => {
@@ -25,8 +53,8 @@ export const Categories = ({ category, sortBy }) => {
     dispatch(setCategory(index));
   }, []);
 
-  const onSelectSortType = useCallback((type) => {
-    dispatch(setSortBy(type));
+  const onSelectSortType = useCallback((keyType, type, order) => {
+    dispatch(setSortBy(keyType, type, order));
   }, []);
 
   return (

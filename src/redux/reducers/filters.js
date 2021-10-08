@@ -1,12 +1,19 @@
 const initialState = {
   category: null,
-  sortBy: { type: "rating", order: "desc" },
+  sortBy: { keyType: "rathing-desc", type: "rathing", order: "desc" },
 };
 
 export const filters = (state = initialState, action) => {
   switch (action.type) {
     case "SET_SORT_BY":
-      return { ...state, sortBy: { type: action.payload } };
+      return {
+        ...state,
+        sortBy: {
+          keyType: action.keyType,
+          type: action.name,
+          order: action.order,
+        },
+      };
     case "SET_CATEGORY":
       return { ...state, category: action.payload };
 

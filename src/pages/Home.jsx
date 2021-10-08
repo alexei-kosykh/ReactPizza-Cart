@@ -18,11 +18,11 @@ export const Home = () => {
 
   useEffect(() => {
     dispatch(fetchPizzas(category, sortBy));
-  }, [category, sortBy]);
+  }, [category, sortBy.keyType]);
 
   return (
     <div className="container">
-      <Categories category={category} sortBy={sortBy.type} />
+      <Categories category={category} sortBy={sortBy} />
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {isLoaded

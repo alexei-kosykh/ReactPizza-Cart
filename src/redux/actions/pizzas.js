@@ -8,7 +8,7 @@ export const fetchPizzas = (category, sortBy) => (dispatch) => {
     .get(
       `http://localhost:3001/pizzas?${
         category === null ? `` : `category=${category}`
-      }&_sort=${sortBy.type}&_order=asc`
+      }&_sort=${sortBy.type}&_order=${sortBy.order}`
     )
     .then(({ data }) => dispatch(setPizzas(data)));
 };
