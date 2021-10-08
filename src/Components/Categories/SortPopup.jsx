@@ -7,7 +7,7 @@ export const SortPopup = ({
   onClickSortBy,
 }) => {
   const onSelectItem = (obj) => {
-    onClickSortBy(obj.keyType, obj.type, obj.order);
+    onClickSortBy(obj.keyType);
     setActiveLabel(items.find((item) => item.keyType === obj.keyType).name);
     setVisiblePopup(false);
   };

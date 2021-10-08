@@ -4,7 +4,7 @@ export const setLoaded = (payload) => ({ type: "SET_LOADED", payload });
 
 export const fetchPizzas = (category, sortBy) => (dispatch) => {
   dispatch(setLoaded(false));
-  const [type, order] = sortBy.keyType.split("-");
+  const [type, order] = sortBy.split("-");
   axios
     .get(
       `http://localhost:3001/pizzas?${

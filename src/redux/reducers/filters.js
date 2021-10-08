@@ -1,6 +1,6 @@
 const initialState = {
   category: null,
-  sortBy: { keyType: "rating-desc" },
+  sortBy: "rating-desc",
 };
 
 export const filters = (state = initialState, action) => {
@@ -8,9 +8,7 @@ export const filters = (state = initialState, action) => {
     case "SET_SORT_BY":
       return {
         ...state,
-        sortBy: {
-          keyType: action.payload,
-        },
+        sortBy: action.payload,
       };
     case "SET_CATEGORY":
       return { ...state, category: action.payload };

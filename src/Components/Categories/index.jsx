@@ -14,8 +14,8 @@ export const Categories = ({ category, sortBy }) => {
     dispatch(setCategory(index));
   }, []);
 
-  const onSelectSortType = useCallback((keyType, type, order) => {
-    dispatch(setSortBy(keyType, type, order));
+  const onSelectSortType = useCallback((type) => {
+    dispatch(setSortBy(type));
   }, []);
 
   return (
