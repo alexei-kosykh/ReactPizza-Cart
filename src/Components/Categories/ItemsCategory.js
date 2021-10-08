@@ -8,33 +8,23 @@ export const arrCategoryFilter = [
 export const arrCategorySort = [
   {
     name: "популярности ⬇",
-    type: "rating",
     keyType: "rating-desc",
-    order: "desc",
   },
   {
     name: "популярности ⬆",
-    type: "rating",
     keyType: "rating-asc",
-    order: "asc",
   },
   {
     name: "цене ⬇",
-    type: "price",
     keyType: "price-desc",
-    order: "desc",
   },
-  { name: "цене ⬆", type: "price", keyType: "price-asc", order: "asc" },
+  { name: "цене ⬆", keyType: "price-asc" },
   {
     name: "алфавиту (А-Я)",
-    keyType: "alphabet-asc",
-    type: "name",
-    order: "asc",
+    keyType: "name-asc",
   },
   {
     name: "алфавиту (Я-А)",
-    keyType: "alphabet-desc",
-    type: "name",
-    order: "desc",
+    keyType: "name-desc",
   },
 ];
