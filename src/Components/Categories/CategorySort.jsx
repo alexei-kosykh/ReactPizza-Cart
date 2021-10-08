@@ -5,6 +5,7 @@ import { LabelSort } from "./LabelSort.jsx";
 
 export const CategorySort = memo(({ items, activeSort, onClickSort }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
+
   const [activeLabel, setActiveLabel] = useState(
     items.find((obj) => obj.type === activeSort).name
   );
