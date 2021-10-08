@@ -7,8 +7,8 @@ export const SortPopup = ({
   onClickSortBy,
 }) => {
   const onSelectItem = (obj) => {
-    onClickSortBy(obj.type);
-    setActiveLabel(items.find((item) => item.type === obj.type).name);
+    onClickSortBy(obj.keyType, obj.type, obj.order);
+    setActiveLabel(items.find((item) => item.keyType === obj.keyType).name);
     setVisiblePopup(false);
   };
 
@@ -19,9 +19,9 @@ export const SortPopup = ({
           {items &&
             items.map((obj, key) => (
               <li
-                className={activeSort === obj.type ? "active" : ""}
+                className={activeSort === obj.keyType ? "active" : ""}
                 onClick={() => onSelectItem(obj)}
-                key={`${obj.type}_${key}`}
+                key={`${obj.keyType}_${key}`}
               >
                 {obj.name}
               </li>
