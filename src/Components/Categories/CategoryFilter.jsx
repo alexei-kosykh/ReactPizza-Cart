@@ -1,33 +1,30 @@
-import { useState, memo } from "react";
+import { memo } from "react";
 
-export const CategoryFilter = memo(({ items, onClickItem }) => {
-  const [activeItem, setActiveItem] = useState(null);
+export const CategoryFilter = memo(
+  ({ items, onClickCategory, activeCategory }) => {
+    return (
+      <div className="categories">
+        <ul>
+          <li
+            className={activeCategory === null ? "active" : ""}
+            onClick={() => onClickCategory(null)}
+          >
+            Все
+          </li>
+          {items &&
+            items.map((item, key) => (
+              <li
+                className={activeCategory === key ? "active" : ""}
+                onClick={() => onClickCategory(key)}
+                key={`${item}_${key}`}
+              >
+                {item}
+              </li>
+            ))}
+        </ul>
+      </div>
+    );
+  }
+);
 
-  const onSelectItem = (index) => {
-    setActiveItem(index);
-    onClickItem(index);
-  };
-
-  return (
-    <div className="categories">
-      <ul>
-        <li
-          className={activeItem === null ? "active" : ""}
-          onClick={() => setActiveItem(null)}
-        >
-          Все
-        </li>
-        {items &&
-          items.map((item, key) => (
-            <li
-              className={activeItem === key ? "active" : ""}
-              onClick={() => onSelectItem(key)}
-              key={`${item}_${key}`}
-            >
-              {item}
-            </li>
-          ))}
-      </ul>
-    </div>
-  );
-});
+CategoryFilter.defaultProps = { items: [], activeCategory: null };

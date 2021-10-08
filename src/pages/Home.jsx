@@ -14,19 +14,22 @@ export const Home = () => {
   });
 
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
+  const { category, sortBy } = useSelector(({ filters }) => filters);
 
   useEffect(() => {
-    dispatch(fetchPizzas());
-  }, []);
+    dispatch(fetchPizzas(category, sortBy));
+  }, [category, sortBy]);
 
   return (
     <div className="container">
-      <Categories />
+      <Categories category={category} sortBy={sortBy} />
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {isLoaded
           ? items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)
-          : Array(10).fill(<PizzaLoadingBlock />)}
+          : Array(12)
+              .fill()
+              .map((x, index) => <PizzaLoadingBlock key={index} />)}
       </div>
     </div>
   );
