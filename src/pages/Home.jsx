@@ -18,7 +18,7 @@ export const Home = () => {
 
   useEffect(() => {
     dispatch(fetchPizzas(category, sortBy));
-  }, [category, sortBy]);
+  }, [category, sortBy, dispatch]);
 
   return (
     <div className="container">

@@ -14,8 +14,9 @@ export const CategorySort = memo(({ items, activeSort, onClickSort }) => {
     setVisiblePopup(!visiblePopup);
   };
 
-  const outsideClick = (e) => {
-    if (!e.path.includes(sortRef.current)) {
+  const outsideClick = (event) => {
+    const path = event.path || (event.composedPath && event.composedPath());
+    if (!path.includes(sortRef.current)) {
       setVisiblePopup(false);
     }
   };

@@ -10,13 +10,19 @@ import { arrCategoryFilter, arrCategorySort } from "./ItemsCategory";
 export const Categories = ({ category, sortBy }) => {
   const dispatch = useDispatch();
 
-  const onSelectCategory = useCallback((index) => {
-    dispatch(setCategory(index));
-  }, []);
+  const onSelectCategory = useCallback(
+    (index) => {
+      dispatch(setCategory(index));
+    },
+    [dispatch]
+  );
 
-  const onSelectSortType = useCallback((type) => {
-    dispatch(setSortBy(type));
-  }, []);
+  const onSelectSortType = useCallback(
+    (type) => {
+      dispatch(setSortBy(type));
+    },
+    [dispatch]
+  );
 
   return (
     <div className="content__top">
