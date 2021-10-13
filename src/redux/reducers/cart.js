@@ -16,15 +16,16 @@ export const cart = (state = initialState, action) => {
 
       const newArray = [].concat.apply([], Object.values(newItems));
 
-      const price = newArray.reduce((sum, obj) => obj.price + sum, 0);
+      const totalPrice = newArray.reduce((sum, obj) => obj.price + sum, 0);
 
       return {
         ...state,
         items: newItems,
         totalCount: newArray.length,
-        totalPrice: price,
+        totalPrice,
       };
     }
+
     // case "SET_TOTAL_PRICE":
     //   return { ...state, totalPrice: action.payload };
     // case "SET_TOTAL_COUNT":

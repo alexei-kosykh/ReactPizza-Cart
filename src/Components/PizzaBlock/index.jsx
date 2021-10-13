@@ -11,6 +11,7 @@ export const PizzaBlock = ({
   types,
   sizes,
   onClickAddPizza,
+  itemsCount,
 }) => {
   const arrTypes = ["тонкое", "традиционное"];
   const arrSizes = [26, 30, 40];
@@ -87,7 +88,7 @@ export const PizzaBlock = ({
             />
           </svg>
           <span>Добавить</span>
-          <i>2</i>
+          {itemsCount && <i>{itemsCount}</i>}
         </Button>
       </div>
     </div>

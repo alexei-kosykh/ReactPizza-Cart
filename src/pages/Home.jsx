@@ -13,8 +13,8 @@ export const Home = () => {
       items: pizzas.items,
     };
   });
-
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
+  const cartItems = useSelector(({ cart }) => cart.items);
   const { category, sortBy } = useSelector(({ filters }) => filters);
 
   useEffect(() => {
@@ -32,7 +32,12 @@ export const Home = () => {
       <div className="content__items">
         {isLoaded
           ? items.map((obj) => (
-              <PizzaBlock onClickAddPizza={addToCart} key={obj.id} {...obj} />
+              <PizzaBlock
+                onClickAddPizza={addToCart}
+                key={obj.id}
+                itemsCount={cartItems[obj.id] && cartItems[obj.id].length}
+                {...obj}
+              />
             ))
           : Array(12)
               .fill()
