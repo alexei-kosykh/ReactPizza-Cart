@@ -14,10 +14,15 @@ export const cart = (state = initialState, action) => {
           : [action.payload],
       };
 
+      const newArray = [].concat.apply([], Object.values(newItems));
+
+      const price = newArray.reduce((sum, obj) => obj.price + sum, 0);
+
       return {
         ...state,
         items: newItems,
-        totalCount: [].concat.apply([], Object.values(newItems)).length,
+        totalCount: newArray.length,
+        totalPrice: price,
       };
     }
     // case "SET_TOTAL_PRICE":
