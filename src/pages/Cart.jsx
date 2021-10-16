@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { CartItem } from "../components";
-import { clearAllCart } from "../redux/actions/cart";
+import { clearAllCart, removeCartItem } from "../redux/actions/cart";
 
 import empryCartImg from "../assets/img/empty-cart.png";
 
@@ -16,6 +17,10 @@ export const Cart = () => {
 
   const onClearAllCart = () => {
     dispatch(clearAllCart());
+  };
+
+  const onRemoveItem = (id) => {
+    dispatch(removeCartItem(id));
   };
 
   return (
@@ -100,12 +105,14 @@ export const Cart = () => {
               <div className="content__items">
                 {addedPizzas.map((obj) => (
                   <CartItem
+                    id={obj.id}
                     key={obj.id}
                     name={obj.name}
                     type={obj.type}
                     size={obj.size}
                     totalPrice={items[obj.id].totalPriceByType}
                     totalCount={items[obj.id].totalCountByType}
+                    onClickRemove={onRemoveItem}
                   />
                 ))}
               </div>
@@ -119,8 +126,8 @@ export const Cart = () => {
                   </span>
                 </div>
                 <div className="cart__bottom-buttons">
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="button button--outline button--add go-back-btn"
                   >
                     <svg
@@ -140,7 +147,7 @@ export const Cart = () => {
                     </svg>
 
                     <span>Вернуться назад</span>
-                  </a>
+                  </Link>
                   <div className="button pay-btn">
                     <span>Оплатить сейчас</span>
                   </div>
@@ -149,18 +156,16 @@ export const Cart = () => {
             </div>
           ) : (
             <div className="cart cart--empty">
-              <h2>
-                <icon>😱</icon> Ваша корзина пустая <icon>😱</icon>
-              </h2>
+              <h2>😱 Ваша корзина пустая 😱</h2>
               <p>
-                Необходимо добавить хотя бы один товар <icon>🙏</icon>
+                Необходимо добавить хотя бы один товар 🙏
                 <br />
                 Для заказа пиццы, вам нужно перейди на главную страницу.
               </p>
               <img src={empryCartImg} alt="Empty cart" />
-              <a href="/" className="button button--black">
+              <Link to="/" className="button button--black">
                 <span>Вернуться назад</span>
-              </a>
+              </Link>
             </div>
           )}
         </div>

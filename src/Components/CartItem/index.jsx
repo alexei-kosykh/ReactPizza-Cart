@@ -1,4 +1,17 @@
-export const CartItem = ({ name, type, size, totalPrice, totalCount }) => {
+import { Button } from "../Button";
+
+export const CartItem = ({
+  id,
+  name,
+  type,
+  size,
+  totalPrice,
+  totalCount,
+  onClickRemove,
+}) => {
+  const removeItem = () => {
+    onClickRemove(id);
+  };
   return (
     <div className="cart__item">
       <div className="cart__item-img">
@@ -57,7 +70,7 @@ export const CartItem = ({ name, type, size, totalPrice, totalCount }) => {
         <b>{totalPrice} р.</b>
       </div>
       <div className="cart__item-remove">
-        <div className="button button--outline button--circle">
+        <Button onClick={removeItem} className="button--circle" outline>
           <svg
             width="10"
             height="10"
@@ -74,7 +87,7 @@ export const CartItem = ({ name, type, size, totalPrice, totalCount }) => {
               fill="#EB5A1E"
             />
           </svg>
-        </div>
+        </Button>
       </div>
     </div>
   );
