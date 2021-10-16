@@ -40,6 +40,9 @@ export const cart = (state = initialState, action) => {
       };
     }
 
+    case "CLEAR_ALL_CART": {
+      return { items: {}, totalCount: 0, totalPrice: 0 };
+    }
     // case "SET_TOTAL_PRICE":
     //   return { ...state, totalPrice: action.payload };
     // case "SET_TOTAL_COUNT":
