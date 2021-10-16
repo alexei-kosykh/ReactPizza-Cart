@@ -5,14 +5,16 @@ const initialState = {
 };
 
 const getTotalPrice = (arrItems) =>
-  arrItems.reduce((sum, obj) => obj.price + sum, 0);
+  +arrItems.reduce((sum, obj) => obj.price + sum, 0).toFixed(2);
 
 const getTotalCount = (arrItems) => arrItems.length;
 
 const getTotalSum = (arr, key) => {
   return key
     ? Object.keys(arr).reduce((sum, key) => arr[key].items.length + sum, 0)
-    : Object.keys(arr).reduce((sum, key) => arr[key].totalPriceByType + sum, 0);
+    : +Object.keys(arr)
+        .reduce((sum, key) => arr[key].totalPriceByType + sum, 0)
+        .toFixed(2);
 };
 
 export const cart = (state = initialState, action) => {
@@ -110,10 +112,6 @@ export const cart = (state = initialState, action) => {
         totalCount: state.totalCount - currentTotalCount,
       };
     }
-    // case "SET_TOTAL_PRICE":
-    //   return { ...state, totalPrice: action.payload };
-    // case "SET_TOTAL_COUNT":
-    //   return { ...state, totalCount: action.payload };
 
     default:
       return state;

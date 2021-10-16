@@ -7,7 +7,7 @@
       "name": "Пицца с игрушкой",
       "types": [0, 1],
       "sizes": [26, 30, 40],
-      "price": 803,
+      "price": 17.9,
       "category": 0,
       "rating": 4
     },
@@ -17,99 +17,169 @@
       "name": "Пицца без игрушки",
       "types": [0],
       "sizes": [26, 40],
-      "price": 245,
+      "price": 17.9,
       "category": 1,
-      "rating": 6
+      "rating": 7
     },
     {
       "id": 2,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg",
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2021/03/23/rivyera_small_mNcDSaS.png",
       "name": "Ривьера",
       "types": [0],
       "sizes": [26, 40],
-      "price": 295,
-      "category": 1,
-      "rating": 4
+      "price": 26.49,
+      "category": 0,
+      "rating": 7
     },
     {
       "id": 3,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/af553bf5-3887-4501-b88e-8f0f55229429.jpg",
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/spice.png",
       "name": "Спайси",
       "types": [1],
       "sizes": [26, 30, 40],
-      "price": 275,
-      "category": 2,
-      "rating": 2
+      "price": 27.8,
+      "category": 3,
+      "rating": 1
     },
     {
       "id": 4,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2020/01/09/gipnotika_small.png",
       "name": "Гипнотика",
       "types": [0, 1],
       "sizes": [26, 30, 40],
-      "price": 415,
-      "category": 3,
+      "price": 26.49,
+      "category": 2,
       "rating": 8
     },
     {
       "id": 5,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg",
-      "name": "Баварская",
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/barbecue.png",
+      "name": "Барбекю",
       "types": [0],
       "sizes": [30, 40],
-      "price": 580,
-      "category": 2,
-      "rating": 2
+      "price": 27.99,
+      "category": 0,
+      "rating": 6
     },
     {
       "id": 6,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d2e337e9-e07a-4199-9cc1-501cc44cb8f8.jpg",
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2020/07/14/super_pepperoni_small-min.png",
       "name": "Пепперони",
       "types": [0, 1],
       "sizes": [26, 30, 40],
-      "price": 675,
+      "price": 26.49,
+      "category": 0,
+      "rating": 8
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2019/07/03/bavarchkaya_small.png",
+      "name": "Баварская 🌶️",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 26.39,
+      "category": 3,
+      "rating": 8
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/5_syrov.png",
+      "name": "5 сыров 🧀",
+      "types": [0, 1],
+      "sizes": [30, 40],
+      "price": 26.49,
       "category": 1,
       "rating": 9
     },
     {
-      "id": 7,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
-      "name": "Овощная",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
-      "price": 450,
-      "category": 4,
-      "rating": 10
-    },
-    {
-      "id": 8,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/ec29465e-606b-4a04-a03e-da3940d37e0e.jpg",
-      "name": "Лесная",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
-      "price": 395,
-      "category": 5,
-      "rating": 10
-    },
-    {
       "id": 9,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg",
-      "name": "Овощи и грибы 🌱",
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/ovoshchnaya.png",
+      "name": "Овощная 🌱",
       "types": [0, 1],
       "sizes": [26, 30, 40],
-      "price": 285,
-      "category": 5,
-      "rating": 1
+      "price": 20.49,
+      "category": 1,
+      "rating": 9
     },
     {
       "id": 10,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg",
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/vetchina_i_griby.png",
       "name": "Ветчина и грибы",
       "types": [0, 1],
       "sizes": [26, 30, 40],
-      "price": 285,
-      "category": 5,
+      "price": 24.89,
+      "category": 0,
+      "rating": 7
+    },
+    {
+      "id": 11,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2020/04/21/%D1%81hicken_curry_small-min.png",
+      "name": "Чикен карри",
+      "types": [1],
+      "sizes": [26, 30],
+      "price": 32.39,
+      "category": 0,
       "rating": 10
+    },
+    {
+      "id": 12,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/krevetki_s_ananasom.png",
+      "name": "Креветки с ананасами",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 26.49,
+      "category": 0,
+      "rating": 6
+    },
+    {
+      "id": 13,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/margarita.png",
+      "name": "Маргарита",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 19.99,
+      "category": 1,
+      "rating": 5
+    },
+    {
+      "id": 14,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2020/11/18/lesnaya_small.png",
+      "name": "Лесная",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 19.99,
+      "category": 1,
+      "rating": 8
+    },
+    {
+      "id": 15,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/kantri.png",
+      "name": "Кантри",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 32.39,
+      "category": 0,
+      "rating": 8
+    },
+    {
+      "id": 16,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2021/08/05/kolbaski_i_opyata_small-min.png",
+      "name": "Колбаски и опята",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 25.78,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 17,
+      "imageUrl": "https://images.dominos.by/media/dominos/osg/api/2018/09/12/carbonara.png",
+      "name": "Карбонара",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 28.89,
+      "category": 0,
+      "rating": 2
     }
   ]
 }
