@@ -73,7 +73,7 @@ export const PizzaBlock = ({
         </ul>
       </div>
       <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от {price} Р</div>
+        <div className="pizza-block__price">от {price} р.</div>
         <Button onClick={onAddPizza} className="button--add" outline>
           <svg
             width="12"
