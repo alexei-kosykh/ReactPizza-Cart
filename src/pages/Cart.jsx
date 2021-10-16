@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { CartItem } from "../components";
+import { CartItem, Button } from "../components";
 import {
   clearAllCart,
   removeCartItem,
@@ -34,6 +34,12 @@ export const Cart = () => {
 
   const onMinusItem = (id) => {
     dispatch(minusCartItem(id));
+  };
+
+  const onPayItem = () => {
+    console.log("Оплатить: ", items);
+    console.log("Общая стоимость: ", totalPrice);
+    console.log("Количество: ", totalCount);
   };
 
   return (
@@ -163,15 +169,17 @@ export const Cart = () => {
 
                     <span>Вернуться назад</span>
                   </Link>
-                  <div className="button pay-btn">
+                  <Button onClick={onPayItem} className="pay-btn">
                     <span>Оплатить сейчас</span>
-                  </div>
+                  </Button>
                 </div>
               </div>
             </div>
           ) : (
             <div className="cart cart--empty">
-              <h2>😱 Ваша корзина пустая 😱</h2>
+              <h2>
+                <i>😱</i> Ваша корзина пустая <i>😱</i>
+              </h2>
               <p>
                 Необходимо добавить хотя бы один товар 🙏
                 <br />
