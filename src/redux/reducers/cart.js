@@ -7,6 +7,8 @@ const initialState = {
 const getTotalPrice = (arrItems) =>
   arrItems.reduce((sum, obj) => obj.price + sum, 0);
 
+const getTotalCount = (arrItems) => arrItems.length;
+
 export const cart = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_PIZZA_CART": {
@@ -19,6 +21,7 @@ export const cart = (state = initialState, action) => {
         [action.payload.id]: {
           items: currentItems,
           totalPriceByType: getTotalPrice(currentItems),
+          totalCountByType: getTotalCount(currentItems),
         },
       };
 
@@ -27,11 +30,12 @@ export const cart = (state = initialState, action) => {
       const newArray = [].concat.apply([], arrOfItems);
 
       const totalPrice = getTotalPrice(newArray);
+      const totalCount = getTotalCount(newArray);
 
       return {
         ...state,
         items: newItems,
-        totalCount: newArray.length,
+        totalCount,
         totalPrice,
       };
     }
