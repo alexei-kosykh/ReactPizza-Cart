@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import { Header } from "./components";
+import { Header } from "./Components";
 import { Home, Cart } from "./pages";
 
 import "./scss/app.scss";

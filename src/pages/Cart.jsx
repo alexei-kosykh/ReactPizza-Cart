@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { CartItem, Button } from "../components";
+import { CartItem, Button } from "../Components";
 import {
   clearAllCart,
   removeCartItem,

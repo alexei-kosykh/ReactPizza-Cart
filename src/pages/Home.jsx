@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { fetchPizzas } from "../redux/actions/pizzas";
 import { addPizzaToCart } from "../redux/actions/cart";
-import { Categories, PizzaBlock, PizzaLoadingBlock } from "../components";
-import { arrCategoryFilter } from "../components/Categories/ItemsCategory";
+import { Categories, PizzaBlock, PizzaLoadingBlock } from "../Components";
+import { arrCategoryFilter } from "../Components/Categories/ItemsCategory";
 
 export const Home = () => {
   const dispatch = useDispatch();
