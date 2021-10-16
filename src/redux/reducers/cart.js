@@ -9,6 +9,12 @@ const getTotalPrice = (arrItems) =>
 
 const getTotalCount = (arrItems) => arrItems.length;
 
+const getTotalSum = (arr, key) => {
+  return key
+    ? Object.keys(arr).reduce((sum, key) => arr[key].items.length + sum, 0)
+    : Object.keys(arr).reduce((sum, key) => arr[key].totalPriceByType + sum, 0);
+};
+
 export const cart = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_PIZZA_CART": {
@@ -25,15 +31,9 @@ export const cart = (state = initialState, action) => {
         },
       };
 
-      const totalCount = Object.keys(newItems).reduce(
-        (sum, key) => newItems[key].items.length + sum,
-        0
-      );
+      const totalCount = getTotalSum(newItems, true);
 
-      const totalPrice = Object.keys(newItems).reduce(
-        (sum, key) => newItems[key].totalPriceByType + sum,
-        0
-      );
+      const totalPrice = getTotalSum(newItems);
 
       return {
         ...state,
@@ -52,32 +52,46 @@ export const cart = (state = initialState, action) => {
         ...state.items[action.payload].items,
         state.items[action.payload].items[0],
       ];
+      const allItems = {
+        ...state.items,
+        [action.payload]: {
+          items: newItems,
+          totalPriceByType: getTotalPrice(newItems),
+          totalCountByType: getTotalCount(newItems),
+        },
+      };
+
+      const totalCount = getTotalSum(allItems, true);
+      const totalPrice = getTotalSum(allItems);
+
       return {
         ...state,
-        items: {
-          ...state.items,
-          [action.payload]: {
-            items: newItems,
-            totalPriceByType: getTotalPrice(newItems),
-            totalCountByType: getTotalCount(newItems),
-          },
-        },
+        items: allItems,
+        totalCount,
+        totalPrice,
       };
     }
 
     case "MINUS_CART_ITEM": {
       const oldItems = state.items[action.payload].items;
       const newItems = oldItems.length > 1 ? oldItems.slice(1) : oldItems;
+      const allItems = {
+        ...state.items,
+        [action.payload]: {
+          items: newItems,
+          totalPriceByType: getTotalPrice(newItems),
+          totalCountByType: getTotalCount(newItems),
+        },
+      };
+
+      const totalCount = getTotalSum(allItems, true);
+      const totalPrice = getTotalSum(allItems);
+
       return {
         ...state,
-        items: {
-          ...state.items,
-          [action.payload]: {
-            items: newItems,
-            totalPriceByType: getTotalPrice(newItems),
-            totalCountByType: getTotalCount(newItems),
-          },
-        },
+        items: allItems,
+        totalCount,
+        totalPrice,
       };
     }
 
