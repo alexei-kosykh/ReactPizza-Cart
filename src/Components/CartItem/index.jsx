@@ -1,4 +1,4 @@
-export const CartItem = ({ name, type, size, totalPrice }) => {
+export const CartItem = ({ name, type, size, totalPrice, totalCount }) => {
   return (
     <div className="cart__item">
       <div className="cart__item-img">
@@ -33,7 +33,7 @@ export const CartItem = ({ name, type, size, totalPrice }) => {
             />
           </svg>
         </div>
-        <b>2</b>
+        <b>{totalCount}</b>
         <div className="button button--outline button--circle cart__item-count-plus">
           <svg
             width="10"

@@ -94,6 +94,7 @@ export const Cart = () => {
                   type={obj.type}
                   size={obj.size}
                   totalPrice={items[obj.id].totalPriceByType}
+                  totalCount={items[obj.id].totalCountByType}
                 />
               ))}
             </div>
