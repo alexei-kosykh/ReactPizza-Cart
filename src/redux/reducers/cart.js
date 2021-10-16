@@ -47,6 +47,40 @@ export const cart = (state = initialState, action) => {
       return { items: {}, totalCount: 0, totalPrice: 0 };
     }
 
+    case "PLUS_CART_ITEM": {
+      const newItems = [
+        ...state.items[action.payload].items,
+        state.items[action.payload].items[0],
+      ];
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [action.payload]: {
+            items: newItems,
+            totalPriceByType: getTotalPrice(newItems),
+            totalCountByType: getTotalCount(newItems),
+          },
+        },
+      };
+    }
+
+    case "MINUS_CART_ITEM": {
+      const oldItems = state.items[action.payload].items;
+      const newItems = oldItems.length > 1 ? oldItems.slice(1) : oldItems;
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [action.payload]: {
+            items: newItems,
+            totalPriceByType: getTotalPrice(newItems),
+            totalCountByType: getTotalCount(newItems),
+          },
+        },
+      };
+    }
+
     case "REMOVE_CART_ITEM": {
       const newItems = {
         ...state.items,
