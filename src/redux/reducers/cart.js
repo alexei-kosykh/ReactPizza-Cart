@@ -25,12 +25,15 @@ export const cart = (state = initialState, action) => {
         },
       };
 
-      const arrOfItems = Object.values(newItems).map((obj) => obj.items);
+      const totalCount = Object.keys(newItems).reduce(
+        (sum, key) => newItems[key].items.length + sum,
+        0
+      );
 
-      const newArray = [].concat.apply([], arrOfItems);
-
-      const totalPrice = getTotalPrice(newArray);
-      const totalCount = getTotalCount(newArray);
+      const totalPrice = Object.keys(newItems).reduce(
+        (sum, key) => newItems[key].totalPriceByType + sum,
+        0
+      );
 
       return {
         ...state,
@@ -42,6 +45,22 @@ export const cart = (state = initialState, action) => {
 
     case "CLEAR_ALL_CART": {
       return { items: {}, totalCount: 0, totalPrice: 0 };
+    }
+
+    case "REMOVE_CART_ITEM": {
+      const newItems = {
+        ...state.items,
+      };
+      const currentTotalPrice = newItems[action.payload].totalPriceByType;
+      const currentTotalCount = newItems[action.payload].totalCountByType;
+
+      delete newItems[action.payload];
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: state.totalPrice - currentTotalPrice,
+        totalCount: state.totalCount - currentTotalCount,
+      };
     }
     // case "SET_TOTAL_PRICE":
     //   return { ...state, totalPrice: action.payload };
