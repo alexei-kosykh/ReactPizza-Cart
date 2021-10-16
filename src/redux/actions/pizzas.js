@@ -7,7 +7,7 @@ export const fetchPizzas = (category, sortBy) => (dispatch) => {
   const [type, order] = sortBy.split("-");
   axios
     .get(
-      `http://localhost:3001/pizzas?${
+      `/pizzas?${
         category === null ? `` : `category=${category}`
       }&_sort=${type}&_order=${order}`
     )
