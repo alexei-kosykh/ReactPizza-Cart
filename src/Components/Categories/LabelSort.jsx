@@ -1,5 +1,3 @@
-import React from "react";
-
 export const LabelSort = ({ onClickPopup, activeLabel, visiblePopup }) => {
   return (
     <div className="sort__label">
