@@ -9,12 +9,13 @@ const getTotalPrice = (arrItems) =>
 
 const getTotalCount = (arrItems) => arrItems.length;
 
-const getTotalSum = (arr, key) => {
-  return key
-    ? Object.keys(arr).reduce((sum, key) => arr[key].items.length + sum, 0)
-    : +Object.keys(arr)
-        .reduce((sum, key) => arr[key].totalPriceByType + sum, 0)
-        .toFixed(2);
+const getAllSumByCount = (arr) => {
+  return Object.keys(arr).reduce((sum, key) => arr[key].items.length + sum, 0);
+};
+const getAllSumByPrice = (arr) => {
+  return +Object.keys(arr)
+    .reduce((sum, key) => arr[key].totalPriceByType + sum, 0)
+    .toFixed(2);
 };
 
 export const cart = (state = initialState, action) => {
@@ -33,9 +34,8 @@ export const cart = (state = initialState, action) => {
         },
       };
 
-      const totalCount = getTotalSum(newItems, true);
-
-      const totalPrice = getTotalSum(newItems);
+      const totalCount = getAllSumByCount(newItems);
+      const totalPrice = getAllSumByPrice(newItems);
 
       return {
         ...state,
@@ -63,8 +63,8 @@ export const cart = (state = initialState, action) => {
         },
       };
 
-      const totalCount = getTotalSum(allItems, true);
-      const totalPrice = getTotalSum(allItems);
+      const totalCount = getAllSumByCount(allItems);
+      const totalPrice = getAllSumByPrice(allItems);
 
       return {
         ...state,
@@ -86,8 +86,8 @@ export const cart = (state = initialState, action) => {
         },
       };
 
-      const totalCount = getTotalSum(allItems, true);
-      const totalPrice = getTotalSum(allItems);
+      const totalCount = getAllSumByCount(allItems);
+      const totalPrice = getAllSumByPrice(allItems);
 
       return {
         ...state,
@@ -108,8 +108,8 @@ export const cart = (state = initialState, action) => {
       return {
         ...state,
         items: newItems,
-        totalPrice: state.totalPrice - currentTotalPrice,
-        totalCount: state.totalCount - currentTotalCount,
+        totalPrice: state.totalPrice - +currentTotalPrice.toFixed(2),
+        totalCount: state.totalCount - +currentTotalCount.toFixed(2),
       };
     }
 

@@ -16,7 +16,6 @@ export const Cart = () => {
   const dispatch = useDispatch();
 
   const { items, totalPrice, totalCount } = useSelector(({ cart }) => cart);
-
   const addedPizzas = Object.keys(items).map((key) => {
     return items[key].items[0];
   });
@@ -61,12 +60,8 @@ export const Cart = () => {
             <div className="content__items">
               {addedPizzas.map((obj) => (
                 <CartItem
-                  id={obj.id}
+                  {...obj}
                   key={obj.id}
-                  name={obj.name}
-                  type={obj.type}
-                  size={obj.size}
-                  imageUrl={obj.imageUrl}
                   totalPrice={items[obj.id].totalPriceByType}
                   totalCount={items[obj.id].totalCountByType}
                   onClickRemove={onRemoveItem}
