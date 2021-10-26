@@ -25,15 +25,15 @@ export const Cart = () => {
     dispatch(clearAllCart());
   };
 
-  const onRemoveItem = (id) => {
+  const onRemoveItem = (id) => () => {
     dispatch(removeCartItem(id));
   };
 
-  const onPlusItem = (id) => {
+  const onPlusItem = (id) => () => {
     dispatch(plusCartItem(id));
   };
 
-  const onMinusItem = (id) => {
+  const onMinusItem = (id) => () => {
     dispatch(minusCartItem(id));
   };
 

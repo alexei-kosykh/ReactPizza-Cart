@@ -19,6 +19,7 @@ export const CategoryFilter = memo(
                 key={`${item}_${key}`}
               >
                 {item}
+                {console.log(key)}
               </li>
             ))}
         </ul>

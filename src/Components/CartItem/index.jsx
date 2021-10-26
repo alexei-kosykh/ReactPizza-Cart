@@ -18,15 +18,6 @@ export const CartItem = ({
   onClickPlus,
   onClickMinus,
 }) => {
-  const removeItem = () => {
-    onClickRemove(id);
-  };
-  const plusItem = () => {
-    onClickPlus(id);
-  };
-  const minusItem = () => {
-    onClickMinus(id);
-  };
   return (
     <div className="cart__item">
       <div className="cart__item-img">
@@ -40,7 +31,7 @@ export const CartItem = ({
       </div>
       <div className="cart__item-count">
         <Button
-          onClick={minusItem}
+          onClick={onClickMinus(id)}
           className="button--circle cart__item-count-minus"
           outline
         >
@@ -48,7 +39,7 @@ export const CartItem = ({
         </Button>
         <b>{totalCount}</b>
         <Button
-          onClick={plusItem}
+          onClick={onClickPlus(id)}
           className="button--circle cart__item-count-plus"
           outline
         >
@@ -59,7 +50,7 @@ export const CartItem = ({
         <b>{totalPrice} р.</b>
       </div>
       <div className="cart__item-remove">
-        <Button onClick={removeItem} className="button--circle" outline>
+        <Button onClick={onClickRemove(id)} className="button--circle" outline>
           {cartRemoveSvg}
         </Button>
       </div>
