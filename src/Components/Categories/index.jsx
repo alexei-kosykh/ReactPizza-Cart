@@ -11,8 +11,8 @@ export const Categories = ({ category, sortBy }) => {
   const dispatch = useDispatch();
 
   const onSelectCategory = useCallback(
-    (index) => {
-      dispatch(setCategory(index));
+    (category) => {
+      dispatch(setCategory(category));
     },
     [dispatch]
   );
@@ -27,7 +27,7 @@ export const Categories = ({ category, sortBy }) => {
   return (
     <div className="content__top">
       <CategoryFilter
-        activeCategory={category}
+        setCategory={category}
         onClickCategory={onSelectCategory}
         items={arrCategoryFilter}
       />

@@ -1,14 +1,18 @@
 import axios from "axios";
 
+import { arrCategoryFilter } from "../../Components/Categories/ItemsCategory";
+
 export const setLoaded = (payload) => ({ type: "SET_LOADED", payload });
 
 export const fetchPizzas = (category, sortBy) => (dispatch) => {
   dispatch(setLoaded(false));
   const [type, order] = sortBy.split("-");
+  const categoryIndex =
+    category === "Все" ? null : arrCategoryFilter.indexOf(category) - 1;
   axios
     .get(
       `/pizzas?${
-        category === null ? `` : `category=${category}`
+        categoryIndex === null ? `` : `category=${categoryIndex}`
       }&_sort=${type}&_order=${order}`
     )
     .then(({ data }) => dispatch(setPizzas(data)));

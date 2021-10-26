@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchPizzas } from "../redux/actions/pizzas";
 import { addPizzaToCart } from "../redux/actions/cart";
 import { Categories, PizzaBlock, PizzaLoadingBlock } from "../Components";
-import { arrCategoryFilter } from "../Components/Categories/ItemsCategory";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -30,7 +29,7 @@ export const Home = () => {
     <div className="container">
       <Categories category={category} sortBy={sortBy} />
       <h2 className="content__title">
-        {arrCategoryFilter[category] || "Все пиццы"}
+        {category === "Все" ? "Все пиццы" : category}
       </h2>
       <div className="content__items">
         {isLoaded

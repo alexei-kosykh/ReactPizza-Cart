@@ -1,4 +1,5 @@
 export const arrCategoryFilter = [
+  "Все",
   "Мясные",
   "Вегетарианские",
   "Гриль",

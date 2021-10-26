@@ -1,5 +1,5 @@
 const initialState = {
-  category: null,
+  category: "Все",
   sortBy: "rating-desc",
 };
 
