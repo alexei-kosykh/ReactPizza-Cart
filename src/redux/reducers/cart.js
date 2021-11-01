@@ -17,16 +17,25 @@ const getAllSumByPrice = (arr) => {
     .reduce((sum, key) => arr[key].totalPriceByType + sum, 0)
     .toFixed(2);
 };
+const getStateItems = (state) => {
+  return state.items;
+};
+const getStateTotalPrice = (state) => {
+  return state.totalPrice;
+};
+const getStateTotalCount = (state) => {
+  return state.totalCount;
+};
 
 export const cart = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_PIZZA_CART": {
-      const currentItems = state.items[action.payload.id]
-        ? [...state.items[action.payload.id].items, action.payload]
+      const currentItems = getStateItems(state)[action.payload.id]
+        ? [...getStateItems(state)[action.payload.id].items, action.payload]
         : [action.payload];
 
       const newItems = {
-        ...state.items,
+        ...getStateItems(state),
         [action.payload.id]: {
           items: currentItems,
           totalPriceByType: getTotalPrice(currentItems),
@@ -51,11 +60,11 @@ export const cart = (state = initialState, action) => {
 
     case "PLUS_CART_ITEM": {
       const newItems = [
-        ...state.items[action.payload].items,
-        state.items[action.payload].items[0],
+        ...getStateItems(state)[action.payload].items,
+        getStateItems(state)[action.payload].items[0],
       ];
       const allItems = {
-        ...state.items,
+        ...getStateItems(state),
         [action.payload]: {
           items: newItems,
           totalPriceByType: getTotalPrice(newItems),
@@ -75,10 +84,10 @@ export const cart = (state = initialState, action) => {
     }
 
     case "MINUS_CART_ITEM": {
-      const oldItems = state.items[action.payload].items;
+      const oldItems = getStateItems(state)[action.payload].items;
       const newItems = oldItems.length > 1 ? oldItems.slice(1) : oldItems;
       const allItems = {
-        ...state.items,
+        ...getStateItems(state),
         [action.payload]: {
           items: newItems,
           totalPriceByType: getTotalPrice(newItems),
@@ -99,7 +108,7 @@ export const cart = (state = initialState, action) => {
 
     case "REMOVE_CART_ITEM": {
       const newItems = {
-        ...state.items,
+        ...getStateItems(state),
       };
       const currentTotalPrice = newItems[action.payload].totalPriceByType;
       const currentTotalCount = newItems[action.payload].totalCountByType;
@@ -108,8 +117,8 @@ export const cart = (state = initialState, action) => {
       return {
         ...state,
         items: newItems,
-        totalPrice: state.totalPrice - +currentTotalPrice.toFixed(2),
-        totalCount: state.totalCount - +currentTotalCount.toFixed(2),
+        totalPrice: getStateTotalPrice(state) - +currentTotalPrice.toFixed(2),
+        totalCount: getStateTotalCount(state) - +currentTotalCount.toFixed(2),
       };
     }
 
